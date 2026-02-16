@@ -1,0 +1,158 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShreeChoice Playworld | Boutique Toy Store</title>
+    <meta name="description" content="India's most trusted toy store for educational, safe, and premium toys. Shop Lego, Soft Toys, and STEM kits." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://esm.sh">
+    
+    <!-- "Soft-Edge" Typography Pairing -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ['Fredoka', 'Verdana', 'sans-serif'], 
+              brand: ['Fredoka', 'Verdana', 'sans-serif'],
+              sans: ['Quicksand', 'Segoe UI', 'Helvetica', 'Arial', 'sans-serif'], 
+              mono: ['JetBrains Mono', 'Courier New', 'monospace'], 
+            },
+            colors: {
+              // Shopcart Theme Palette
+              'surface': '#F9F9F9', 
+              'surface-dark': '#F5E6CC', 
+              'brand-primary': '#000000', // Changed to Black
+              'brand-secondary': '#FF6B6B', // Coral/Red
+              'brand-yellow': '#F4EBD0', // Soft Yellow BG
+              'brand-accent': '#F59E0B', // Orange
+              'brand-dark': '#231F20', // Ink
+              'play-yellow': '#FFD93D',
+            },
+            animation: {
+              'pop-in': 'popIn 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6) forwards',
+              'float': 'float 6s ease-in-out infinite',
+              'slide-up': 'slideUp 0.5s ease-out forwards',
+            },
+            keyframes: {
+              popIn: {
+                '0%': { opacity: '0', transform: 'translateY(20px) scale(0.95)' },
+                '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              slideUp: {
+                '0%': { transform: 'translateY(100%)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              }
+            },
+            boxShadow: {
+              'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
+              'hard': '4px 4px 0px #000000',
+            }
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^18.2.0/",
+    "react/": "https://esm.sh/react@^18.2.0/",
+    "react": "https://esm.sh/react@^18.2.0",
+    "framer-motion": "https://esm.sh/framer-motion@10.16.4",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.39.3",
+    "@google/genai": "https://esm.sh/@google/genai@0.14.0",
+    "pdfjs-dist": "https://esm.sh/pdfjs-dist@4.4.168"
+  }
+}
+</script>
+<style>
+  :root {
+    --color-text: #231F20;
+  }
+
+  /* Reset and Lock Fonts Globally with !important */
+  html, body { 
+    background-color: #FFFFFF;
+    color: #231F20;
+    font-family: 'Quicksand', 'Segoe UI', Helvetica, Arial, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Target all standard text elements to enforce the body font */
+  p, span, a, li, div, input, textarea, select, button, label {
+    font-family: 'Quicksand', 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+
+  /* Lock Headings to Fredoka */
+  h1, h2, h3, h4, h5, h6, .font-heading, .font-brand {
+      font-family: 'Fredoka', 'Verdana', sans-serif !important;
+      font-weight: 600;
+      color: #000000;
+  }
+  
+  /* Lock Mono font */
+  pre, code, kbd, samp, .font-mono {
+      font-family: 'JetBrains Mono', 'Courier New', monospace !important;
+  }
+  
+  /* Utilities */
+  .container-custom {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Modern Scrollbar */
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(203, 213, 225, 0.6) transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(203, 213, 225, 0.8); /* Slate-300 with opacity */
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #000000; /* Brand Primary */
+  }
+
+  .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+</style>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-sans text-brand-dark antialiased">
+    <div id="root"></div>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
